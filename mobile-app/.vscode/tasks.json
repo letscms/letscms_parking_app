@@ -1,0 +1,55 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Flutter: Run App",
+			"type": "shell",
+			"command": "flutter",
+			"args": [
+				"run"
+			],
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": [
+				"$flutter"
+			]
+		},
+		{
+			"label": "Flutter: Get Dependencies",
+			"type": "shell",
+			"command": "flutter",
+			"args": [
+				"pub",
+				"get"
+			],
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Flutter: Build APK",
+			"type": "shell",
+			"command": "flutter",
+			"args": [
+				"build",
+				"apk"
+			],
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": [
+				"$flutter"
+			]
+		},
+		{
+			"label": "Flutter: Clean",
+			"type": "shell",
+			"command": "flutter",
+			"args": [
+				"clean"
+			],
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}
