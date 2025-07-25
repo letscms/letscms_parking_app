@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    container_name: parking_app_postgres
+    environment:
+      POSTGRES_USER: letscms
+      POSTGRES_PASSWORD: dhanvi
+      POSTGRES_DB: parking_app
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - parking_app_network
+
+  redis:
+    image: redis:7-alpine
+    container_name: parking_app_redis
+    ports:
+      - "6379:6379"
+    networks:
+      - parking_app_network
+
+volumes:
+  postgres_data:
+
+networks:
+  parking_app_network:
+    driver: bridge
