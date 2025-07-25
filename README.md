@@ -6,7 +6,7 @@
 [![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)](https://nestjs.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
-[![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactnative.dev/)
+[![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
@@ -239,16 +239,22 @@ parking_app/
 │   │   └── utils/             # Utility functions
 │   └── public/                # Static assets
 │
-├── 📱 mobile-app/             # React Native Mobile App
-│   ├── src/
-│   │   ├── components/        # Mobile UI components
-│   │   ├── screens/           # Application screens
-│   │   ├── navigation/        # Navigation configuration
-│   │   ├── services/          # API and native services
-│   │   ├── store/             # Mobile state management
-│   │   └── utils/             # Mobile utilities
+├── 📱 mobile-app/             # Flutter Mobile App
+│   ├── lib/
+│   │   ├── src/
+│   │   │   ├── components/        # Reusable Flutter widgets
+│   │   │   ├── screens/           # Application screens
+│   │   │   ├── navigation/        # Navigation configuration
+│   │   │   ├── services/          # API and native services
+│   │   │   ├── state/             # BLoC/Riverpod state management
+│   │   │   ├── models/            # Data models and DTOs
+│   │   │   └── utils/             # Utility functions
+│   │   ├── main.dart              # App entry point
+│   │   └── firebase_options.dart  # Firebase configuration
 │   ├── android/               # Android configuration
-│   └── ios/                   # iOS configuration
+│   ├── ios/                   # iOS configuration
+│   ├── web/                   # Web configuration
+│   └── pubspec.yaml           # Flutter dependencies
 │
 ├── 👑 admin-panel/            # Admin Dashboard
 │   ├── src/
@@ -279,7 +285,7 @@ parking_app/
 | **Database** | PostgreSQL + TypeORM | Relational data storage with ORM |
 | **Cache** | Redis | Session storage and caching |
 | **Web Frontend** | React.js + TypeScript | Responsive web application |
-| **Mobile App** | React Native + TypeScript | Cross-platform mobile application |
+| **Mobile App** | Flutter + Dart | Cross-platform mobile application |
 | **Admin Panel** | React.js + Ant Design | Administrative dashboard |
 | **Authentication** | JWT + Passport.js | Secure authentication system |
 | **Payments** | Stripe + Razorpay + PayPal | Multi-gateway payment processing |
@@ -332,7 +338,7 @@ After setup, access the applications at:
 | Application | URL | Description |
 |-------------|-----|-------------|
 | 🌐 **Web App** | `http://localhost:3001` | Customer web interface |
-| 📱 **Mobile App** | Metro Bundler | React Native development |
+| 📱 **Mobile App** | Flutter Development | Flutter development environment |
 | 👑 **Admin Panel** | `http://localhost:3002` | Administrative dashboard |
 | 🔙 **API Server** | `http://localhost:3000` | Backend API endpoints |
 | 📖 **API Docs** | `http://localhost:3000/api` | Swagger documentation |
@@ -365,25 +371,35 @@ npm start
 
 ### 📱 **Mobile Application**
 
-**Tech Stack:** React Native + TypeScript
+**Tech Stack:** Flutter + Dart
 
 **Features:**
-- Cross-platform (iOS & Android)
-- Native performance
-- Push notifications
-- Offline capability
+- Cross-platform (iOS & Android) with single codebase
+- Native performance with compiled ARM code
+- Material Design and Cupertino widgets
+- Hot reload for fast development
+- Push notifications via Firebase
+- Offline capability with local storage
 - Camera integration for QR codes
+- Biometric authentication support
+- State management with BLoC/Riverpod
 
 **Quick Start:**
 ```bash
 cd mobile-app
-npm install
 
-# For iOS
-npx react-native run-ios
+# Install Flutter dependencies
+flutter pub get
 
-# For Android
-npx react-native run-android
+# Run on iOS simulator
+flutter run -d ios
+
+# Run on Android emulator
+flutter run -d android
+
+# Build for production
+flutter build apk --release
+flutter build ios --release
 ```
 
 **[📖 Mobile App Documentation](./mobile-app/README.md)**
@@ -454,7 +470,7 @@ npm run start:dev
    # Terminal 2: Web App
    npm run dev:web
    
-   # Terminal 3: Mobile App
+   # Terminal 3: Flutter Mobile App
    npm run dev:mobile
    
    # Terminal 4: Admin Panel
@@ -580,7 +596,14 @@ kubectl apply -f k8s/
 - **Backend**: Google Cloud Run
 - **Database**: Cloud SQL
 - **Frontend**: Firebase Hosting
-- **Mobile**: Firebase App Distribution
+- **Flutter Deployment:**
+```bash
+# Build and deploy to Google Play Store
+flutter build appbundle --release
+
+# Build and deploy to Apple App Store
+flutter build ios --release
+```
 
 **Heroku Deployment:**
 ```bash
