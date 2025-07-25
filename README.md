@@ -192,15 +192,15 @@ The **Smart Parking Management System** is a complete, scalable solution that re
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │   Web App       │    │   Mobile App    │    │   Admin Panel   │
-│  (React.js)     │    │ (React Native)  │    │  (React.js)     │
+│  (React.js)     │    │(Flutter + Dart) │    │  (React.js)     │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
          │                       │                       │
          └───────────────────────┼───────────────────────┘
                                  │
-                    ┌─────────────────┐
-                    │   API Gateway   │
-                    │  (NestJS/Node)  │
-                    └─────────────────┘
+                        ┌─────────────────┐
+                        │   API Gateway   │
+                        │  (NestJS/Node)  │
+                        └─────────────────┘
                                  │
          ┌───────────────────────┼───────────────────────┐
          │                       │                       │
